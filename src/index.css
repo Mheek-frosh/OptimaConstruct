@@ -1,0 +1,66 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    @apply transition-colors duration-300;
+  }
+
+  body {
+    @apply bg-white text-charcoal font-inter overflow-x-hidden antialiased transition-colors duration-300 min-h-screen;
+  }
+
+  html.dark body {
+    @apply bg-charcoalDark text-white;
+  }
+
+  /* Ensure light mode base is explicit when dark class is absent */
+  html:not(.dark) body {
+    @apply bg-white text-charcoal;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-orbitron;
+  }
+}
+
+@layer utilities {
+  .cyber-grid {
+    background-image: 
+      linear-gradient(rgba(45, 45, 45, 0.06) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(45, 45, 45, 0.06) 1px, transparent 1px);
+    background-size: 40px 40px;
+  }
+
+  .dark .cyber-grid {
+    background-image: 
+      linear-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
+  }
+
+  .glow-charcoal {
+    box-shadow: 0 0 40px rgba(45, 45, 45, 0.15);
+  }
+
+  ::view-transition-old(root),
+  ::view-transition-new(root) {
+    animation: none;
+    mix-blend-mode: normal;
+  }
+
+  .dark::view-transition-old(root) {
+    z-index: 1;
+  }
+  .dark::view-transition-new(root) {
+    z-index: 9999;
+  }
+
+  ::view-transition-old(root) {
+    z-index: 9999;
+  }
+  ::view-transition-new(root) {
+    z-index: 1;
+  }
+}

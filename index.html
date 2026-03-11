@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <script>
+      (function() {
+        var theme = localStorage.getItem('optima-theme');
+        if (!theme) theme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+        var root = document.documentElement;
+        if (theme === 'dark') root.classList.add('dark');
+        else root.classList.remove('dark');
+        root.setAttribute('data-theme', theme);
+        root.style.colorScheme = theme;
+      })();
+    </script>
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>OptimaConstruct | Construction Intelligence for Faster Decisions</title>
+    <meta name="description" content="Construction intelligence for faster decisions, stronger delivery, and better margin control. Delay prediction, reporting automation, document intelligence, and more." />
+    <meta name="keywords" content="construction, construction intelligence, delay prediction, reporting automation, document intelligence, cost forecasting, procurement" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Orbitron:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>
