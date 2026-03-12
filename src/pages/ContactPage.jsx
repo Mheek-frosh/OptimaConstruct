@@ -27,7 +27,7 @@ const ContactPage = () => {
             Let's talk
           </motion.h1>
           <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.1 }} className="text-charcoal/70 dark:text-white/70 font-inter text-lg">
-            Ready to reduce decision latency and protect margin? We begin with one painful workflow, one measurable pilot.
+            Have a project delivery, workforce, or margin problem? Reach out and let’s identify the right starting point.
           </motion.p>
         </div>
       </section>
