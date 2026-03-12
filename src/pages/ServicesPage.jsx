@@ -144,39 +144,40 @@ const ServicesPage = () => (
 
         <div className="grid lg:grid-cols-3 gap-8">
           {packagesData.map((pkg, i) => (
-            <motion.article
-              key={i}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: i * 0.1 }}
-              className="rounded-3xl border-2 border-charcoal/10 dark:border-white/10 bg-white dark:bg-charcoalLight/30 overflow-hidden hover:border-charcoal/25 dark:hover:border-white/20 hover:shadow-2xl transition-all flex flex-col"
-            >
-              <div className="h-48 overflow-hidden">
-                <img src={pkg.image} alt={pkg.title} className="w-full h-full object-cover hover:scale-105 transition-transform duration-500" />
-              </div>
-              <div className="p-8 flex flex-col flex-1">
-                <div className="w-14 h-14 rounded-2xl bg-charcoal dark:bg-white text-white dark:text-charcoal flex items-center justify-center mb-6 -mt-12 relative z-10">
-                  <pkg.icon size={28} />
+            <Link to="/contact" key={i} className="block w-full h-full">
+              <motion.article
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: i * 0.1 }}
+                className="h-full rounded-3xl border-2 border-charcoal/10 dark:border-white/10 bg-white dark:bg-charcoalLight/30 overflow-hidden hover:border-charcoal/25 dark:hover:border-white/20 hover:shadow-2xl transition-all flex flex-col"
+              >
+                <div className="h-48 overflow-hidden">
+                  <img src={pkg.image} alt={pkg.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
                 </div>
-                <h3 className="font-orbitron font-bold text-xl text-charcoal dark:text-white mb-2">{pkg.title}</h3>
-                <p className="text-xs font-orbitron font-bold tracking-widest uppercase text-charcoal/50 dark:text-white/50 mb-3">Best for</p>
-                <p className="text-charcoal/70 dark:text-white/70 font-inter text-sm mb-6 leading-relaxed">{pkg.bestFor}</p>
-                <p className="text-xs font-orbitron font-bold tracking-widest uppercase text-charcoal/50 dark:text-white/50 mb-3">What is included</p>
-                <ul className="space-y-2 mb-6 flex-1">
-                  {pkg.included.map((item, j) => (
-                    <li key={j} className="flex items-start gap-2 text-charcoal/80 dark:text-white/80 font-inter text-sm">
-                      <Check size={16} className="text-charcoal dark:text-white flex-shrink-0 mt-0.5" />
-                      {item}
-                    </li>
-                  ))}
-                </ul>
-                <div className="pt-6 border-t border-charcoal/10 dark:border-white/10">
-                  <p className="text-xs font-orbitron font-bold tracking-widest uppercase text-charcoal/50 dark:text-white/50 mb-2">Core promise</p>
-                  <p className="font-orbitron font-semibold text-charcoal dark:text-white">{pkg.promise}</p>
+                <div className="p-8 flex flex-col flex-1">
+                  <div className="w-14 h-14 rounded-2xl bg-charcoal dark:bg-white text-white dark:text-charcoal flex items-center justify-center mb-6 -mt-12 relative z-10 transition-transform group-hover:-translate-y-1">
+                    <pkg.icon size={28} />
+                  </div>
+                  <h3 className="font-orbitron font-bold text-xl text-charcoal dark:text-white mb-2 group-hover:text-charcoal/80 dark:group-hover:text-white/80 transition-colors">{pkg.title}</h3>
+                  <p className="text-xs font-orbitron font-bold tracking-widest uppercase text-charcoal/50 dark:text-white/50 mb-3">Best for</p>
+                  <p className="text-charcoal/70 dark:text-white/70 font-inter text-sm mb-6 leading-relaxed">{pkg.bestFor}</p>
+                  <p className="text-xs font-orbitron font-bold tracking-widest uppercase text-charcoal/50 dark:text-white/50 mb-3">What is included</p>
+                  <ul className="space-y-2 mb-6 flex-1">
+                    {pkg.included.map((item, j) => (
+                      <li key={j} className="flex items-start gap-2 text-charcoal/80 dark:text-white/80 font-inter text-sm">
+                        <Check size={16} className="text-charcoal dark:text-white flex-shrink-0 mt-0.5" />
+                        {item}
+                      </li>
+                    ))}
+                  </ul>
+                  <div className="pt-6 border-t border-charcoal/10 dark:border-white/10">
+                    <p className="text-xs font-orbitron font-bold tracking-widest uppercase text-charcoal/50 dark:text-white/50 mb-2">Core promise</p>
+                    <p className="font-orbitron font-semibold text-charcoal dark:text-white group-hover:text-charcoal/80 dark:group-hover:text-white/80 transition-colors">{pkg.promise}</p>
+                  </div>
                 </div>
-              </div>
-            </motion.article>
+              </motion.article>
+            </Link>
           ))}
         </div>
       </div>
