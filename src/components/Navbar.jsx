@@ -5,6 +5,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import Logo from './Logo';
 import { useTheme } from '../context/ThemeContext';
 
+// Small animated pill that visually shows and toggles the current theme
 const ThemeToggle = ({ isDark, toggleTheme }) => (
   <button
     type="button"
@@ -55,6 +56,7 @@ const Navbar = () => {
     setAboutDropdownOpen(false);
   }, [location.pathname]);
 
+  // Top-level items and nested dropdown structure used across desktop and mobile nav
   const navLinks = [
     { label: 'Home', to: '/' },
     {
@@ -71,6 +73,7 @@ const Navbar = () => {
   const isActive = (path) => location.pathname === path;
   const isAboutActive = location.pathname === '/about' || location.pathname === '/teams' || location.pathname === '/careers';
 
+  // Shared styling logic for main nav links so active and hover states stay consistent
   const navCls = (path, hasDropdown) => {
     const active = hasDropdown ? isAboutActive : isActive(path);
     return `px-5 py-2 rounded-full text-sm font-orbitron font-medium tracking-wider transition-all duration-200 ${active

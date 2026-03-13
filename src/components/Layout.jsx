@@ -6,18 +6,19 @@ import ScrollProgress from './ScrollProgress';
 import BackToTop from './BackToTop';
 import { useTheme } from '../context/ThemeContext';
 
+// Root shell that wraps every page with nav, footer and shared utilities
 const Layout = () => {
   const { isDark } = useTheme();
   return (
-  <div className={`min-h-screen transition-colors duration-300 ${isDark ? 'bg-charcoalDark text-white' : 'bg-white text-charcoal'}`}>
-    <ScrollProgress />
-    <BackToTop />
-    <Navbar />
-    <main role="main">
-      <Outlet />
-    </main>
-    <Footer />
-  </div>
+    <div className={`min-h-screen transition-colors duration-300 ${isDark ? 'bg-charcoalDark text-white' : 'bg-white text-charcoal'}`}>
+      <ScrollProgress />
+      <BackToTop />
+      <Navbar />
+      <main role="main">
+        <Outlet />
+      </main>
+      <Footer />
+    </div>
   );
 };
 

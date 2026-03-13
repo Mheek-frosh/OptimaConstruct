@@ -1,6 +1,9 @@
 import React, { createContext, useContext, useState, useEffect } from 'react';
 
+// Persisted key used across inline script and React theme context
 const STORAGE_KEY = 'optima-theme';
+
+// Central context for reading and updating the current theme
 const ThemeContext = createContext();
 
 export const useTheme = () => {
@@ -10,6 +13,7 @@ export const useTheme = () => {
 };
 
 export const ThemeProvider = ({ children }) => {
+  // Initialise from localStorage or system preference so UI matches user/device
   const [theme, setTheme] = useState(() => {
     if (typeof window === 'undefined') return 'light';
     const stored = localStorage.getItem(STORAGE_KEY);
@@ -17,6 +21,7 @@ export const ThemeProvider = ({ children }) => {
     return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
   });
 
+  // Apply theme to <html> so Tailwind's dark mode and CSS color-scheme react correctly
   const syncThemeToDOM = (t) => {
     const root = document.documentElement;
     if (t === 'dark') {
@@ -28,11 +33,13 @@ export const ThemeProvider = ({ children }) => {
     root.style.colorScheme = t;
   };
 
+  // Keep local state, DOM and localStorage in sync when theme changes
   useEffect(() => {
     syncThemeToDOM(theme);
     localStorage.setItem(STORAGE_KEY, theme);
   }, [theme]);
 
+  // Listen for theme changes from other tabs/windows and mirror them here
   useEffect(() => {
     const handleStorage = (e) => {
       if (e.key === STORAGE_KEY && (e.newValue === 'light' || e.newValue === 'dark')) {
@@ -43,6 +50,7 @@ export const ThemeProvider = ({ children }) => {
     return () => window.removeEventListener('storage', handleStorage);
   }, []);
 
+  // Toggle between light and dark, optionally using view transitions for a radial reveal
   const toggleTheme = (e) => {
     const nextTheme = theme === 'light' ? 'dark' : 'light';
 
