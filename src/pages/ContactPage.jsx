@@ -40,13 +40,13 @@ const ContactPage = () => {
             <motion.div initial={{ opacity: 0, x: -20 }} animate={{ opacity: 1, x: 0 }} className="space-y-8">
               <h3 className="font-orbitron font-bold text-lg tracking-tight text-charcoal dark:text-white">Get in touch</h3>
               <div className="space-y-6">
-                <a href="mailto:contact@optimaconstruct.com" className="flex items-center gap-4 text-charcoal/80 dark:text-white/80 hover:text-charcoal dark:hover:text-white transition-colors">
+                <a href="mailto:contact@optimaconstructai.com" className="flex items-center gap-4 text-charcoal/80 dark:text-white/80 hover:text-charcoal dark:hover:text-white transition-colors">
                   <div className="w-12 h-12 rounded-xl bg-charcoal/5 dark:bg-white/10 flex items-center justify-center flex-shrink-0">
                     <Mail size={20} className="text-charcoal dark:text-white" />
                   </div>
                   <div>
                     <p className="font-orbitron text-xs uppercase tracking-wider text-charcoal/50 dark:text-white/50">Email</p>
-                    <p className="font-inter text-charcoal dark:text-white">contact@optimaconstruct.com</p>
+                    <p className="font-inter text-charcoal dark:text-white">contact@optimaconstructai.com</p>
                   </div>
                 </a>
                 <div className="flex items-center gap-4 text-charcoal/80 dark:text-white/80">
@@ -154,8 +154,8 @@ const ContactPage = () => {
       <section className="py-16 bg-charcoal/10 dark:bg-charcoal text-charcoal dark:text-white transition-colors duration-300">
         <div className="container mx-auto px-6 text-center">
           <p className="font-inter text-charcoal/80 dark:text-white/80 mb-2">Prefer email?</p>
-          <a href="mailto:contact@optimaconstruct.com" className="font-orbitron font-semibold text-lg hover:underline">
-            contact@optimaconstruct.com
+          <a href="mailto:contact@optimaconstructai.com" className="font-orbitron font-semibold text-lg hover:underline">
+            contact@optimaconstructai.com
           </a>
         </div>
       </section>
