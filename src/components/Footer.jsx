@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { Linkedin, Mail } from 'lucide-react';
+import { Linkedin, Mail, Instagram } from 'lucide-react';
 import Logo from './Logo';
 import { useTheme } from '../context/ThemeContext';
 
@@ -74,6 +74,9 @@ const Footer = () => {
             © {new Date().getFullYear()} Optima Construct. All rights reserved.
           </p>
           <div className="flex gap-4">
+            <a href="https://www.instagram.com/optimaconstructai?igsh=ZDQ1aDB2NXRteDE4&utm_source=qr" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-xl bg-charcoal/5 dark:bg-white/5 border border-charcoal/10 dark:border-white/10 flex items-center justify-center text-charcoal/70 dark:text-white/60 hover:text-charcoal dark:hover:text-white hover:border-charcoal/20 dark:hover:border-white/20 transition-all" aria-label="Instagram">
+              <Instagram size={18} />
+            </a>
             <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-xl bg-charcoal/5 dark:bg-white/5 border border-charcoal/10 dark:border-white/10 flex items-center justify-center text-charcoal/70 dark:text-white/60 hover:text-charcoal dark:hover:text-white hover:border-charcoal/20 dark:hover:border-white/20 transition-all" aria-label="LinkedIn">
               <Linkedin size={18} />
             </a>
