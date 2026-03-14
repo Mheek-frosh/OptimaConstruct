@@ -33,11 +33,11 @@ const HomePage = () => (
         <motion.span initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="inline-block px-4 py-1.5 rounded-full bg-charcoal/5 dark:bg-white/10 text-charcoal/70 dark:text-white/70 font-orbitron text-[10px] font-bold tracking-[0.3em] uppercase mb-6">
           Construction Intelligence
         </motion.span>
-        <motion.h1 initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.1 }} className="text-5xl md:text-7xl lg:text-8xl font-orbitron font-bold text-charcoal dark:text-white tracking-tight mb-6 leading-[1.05]">
-          See earlier.<br /><span className="text-charcoal/70 dark:text-white/70">Act sooner.</span>
+        <motion.h1 initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.1 }} className="text-4xl md:text-5xl lg:text-6xl font-orbitron font-bold text-charcoal dark:text-white tracking-tight mb-6 leading-tight">
+          AI Construction Planning and Cost Estimation Platform
         </motion.h1>
         <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.2 }} className="text-lg md:text-xl text-charcoal/70 dark:text-white/70 max-w-2xl mx-auto mb-12 font-inter">
-          Construction intelligence for faster decisions, stronger delivery, and better margin control.
+          Optima Construct AI helps builders and engineers optimize construction projects using intelligent automation and data-driven insights.
         </motion.p>
         <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.3 }} className="flex flex-col sm:flex-row gap-4 justify-center items-center">
           <Link to="/services" className="group flex items-center gap-2 px-8 py-4 rounded-full bg-charcoal dark:bg-white text-white dark:text-charcoal font-orbitron text-sm font-bold tracking-wider uppercase hover:bg-charcoalLight transition-all">
