@@ -80,7 +80,7 @@ const Footer = () => {
             <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-xl bg-charcoal/5 dark:bg-white/5 border border-charcoal/10 dark:border-white/10 flex items-center justify-center text-charcoal/70 dark:text-white/60 hover:text-charcoal dark:hover:text-white hover:border-charcoal/20 dark:hover:border-white/20 transition-all" aria-label="LinkedIn">
               <Linkedin size={18} />
             </a>
-            <a href="mailto:contact@optimaconstruct.com" className="w-10 h-10 rounded-xl bg-charcoal/5 dark:bg-white/5 border border-charcoal/10 dark:border-white/10 flex items-center justify-center text-charcoal/70 dark:text-white/60 hover:text-charcoal dark:hover:text-white hover:border-charcoal/20 dark:hover:border-white/20 transition-all" aria-label="Email">
+            <a href="mailto:contact@optimaconstructai.com" className="w-10 h-10 rounded-xl bg-charcoal/5 dark:bg-white/5 border border-charcoal/10 dark:border-white/10 flex items-center justify-center text-charcoal/70 dark:text-white/60 hover:text-charcoal dark:hover:text-white hover:border-charcoal/20 dark:hover:border-white/20 transition-all" aria-label="Email">
               <Mail size={18} />
             </a>
           </div>
