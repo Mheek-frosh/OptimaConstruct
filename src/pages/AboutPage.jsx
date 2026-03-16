@@ -1,8 +1,16 @@
+// ============================================================
+// AboutPage.jsx
+// Displays the About Us page for Optima Construct.
+// Sections: Hero, Who We Serve, Our Approach (phases),
+//           What We Believe (values), and a CTA to Contact.
+// ============================================================
+
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { ArrowRight, Target, Users, Zap, Shield } from 'lucide-react';
 
+// ── Company values displayed in the "What We Believe" section ──
 const values = [
   { icon: Target, title: 'Outcome-focused', desc: 'We start with one painful workflow and one measurable business case—not a full-scale replacement.' },
   { icon: Users, title: 'Client-centred', desc: "Every engagement is tailored to your firm's context, capacity, and constraints." },
@@ -10,6 +18,7 @@ const values = [
   { icon: Shield, title: 'Independent', desc: 'No vendor alignment. Our recommendations are based solely on your needs.' },
 ];
 
+// ── Engagement phases displayed in the "Our Approach" section ──
 const phases = [
   { num: '01', label: 'Diagnostic', desc: 'Understand your workflows, data, and pain points.', image: 'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=400&q=80' },
   { num: '02', label: 'Pilot', desc: 'Run a focused pilot on one workflow with clear KPIs.', image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=400&q=80' },
@@ -19,10 +28,13 @@ const phases = [
 
 const AboutPage = () => (
   <>
-    {/* Hero */}
+    {/* ── HERO SECTION ──────────────────────────────────────────
+        Two-column layout: left = heading + CTA button,
+        right = hero image with decorative background square.    */}
     <section className="pt-32 pb-20 bg-white dark:bg-charcoalDark">
       <div className="container mx-auto px-6 lg:px-12">
         <div className="grid lg:grid-cols-2 gap-16 items-center">
+          {/* Left: Heading text and link to Services */}
           <motion.div initial={{ opacity: 0, x: -20 }} animate={{ opacity: 1, x: 0 }}>
             <span className="inline-block px-4 py-1.5 rounded-full bg-charcoal/5 dark:bg-white/10 text-charcoal/70 dark:text-white/70 font-orbitron text-[10px] font-bold tracking-[0.3em] uppercase mb-6">About Us</span>
             <h1 className="font-orbitron font-bold text-4xl md:text-5xl tracking-tight text-charcoal dark:text-white mb-6 leading-tight">
@@ -35,6 +47,8 @@ const AboutPage = () => (
               View our services <ArrowRight size={16} />
             </Link>
           </motion.div>
+
+          {/* Right: Hero image with decorative offset square */}
           <motion.div initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }} className="relative">
             <img src="https://images.unsplash.com/photo-1541888946425-d81bb19240f5?w=800&q=80" alt="Construction site" className="rounded-2xl w-full object-cover h-80 lg:h-96" />
             <div className="absolute -bottom-6 -right-6 w-48 h-48 rounded-2xl bg-charcoal/5 dark:bg-white/5 -z-10" />
@@ -43,10 +57,13 @@ const AboutPage = () => (
       </div>
     </section>
 
-    {/* Who we serve with image */}
+    {/* ── WHO WE SERVE SECTION ──────────────────────────────────
+        Two-column layout: left = description text,
+        right = supporting team image.                          */}
     <section className="py-20 bg-charcoal/5 dark:bg-charcoal text-charcoal dark:text-white transition-colors duration-300">
       <div className="container mx-auto px-6 lg:px-12">
         <div className="grid lg:grid-cols-2 gap-16 items-center">
+          {/* Left: Who the firm targets */}
           <motion.div initial={{ opacity: 0, x: -20 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }}>
             <h2 className="font-orbitron font-bold text-3xl tracking-tight mb-6">Who we serve</h2>
             <p className="text-charcoal/80 dark:text-white/80 font-inter text-lg max-w-xl leading-relaxed mb-4">
@@ -56,6 +73,8 @@ const AboutPage = () => (
               We work with firms that are stretched for capacity and visibility—not for data. Our clients want clearer insight, less admin burden, and earlier warning on risk and margin pressure.
             </p>
           </motion.div>
+
+          {/* Right: Team photo */}
           <motion.div initial={{ opacity: 0, x: 20 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} className="relative">
             <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=800&q=80" alt="Construction team" className="rounded-2xl w-full object-cover h-72" />
           </motion.div>
@@ -63,7 +82,10 @@ const AboutPage = () => (
       </div>
     </section>
 
-    {/* Our approach with images */}
+    {/* ── OUR APPROACH SECTION ──────────────────────────────────
+        Maps over the `phases` array.
+        Alternates image left/right on desktop using flex-row-reverse
+        for odd-indexed phases.                                 */}
     <section className="py-20 bg-white dark:bg-charcoalDark">
       <div className="container mx-auto px-6 lg:px-12">
         <motion.h2 initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="font-orbitron font-bold text-3xl tracking-tight text-charcoal dark:text-white mb-12">Our approach</motion.h2>
@@ -76,11 +98,15 @@ const AboutPage = () => (
               viewport={{ once: true }}
               className={`flex flex-col ${i % 2 === 1 ? 'lg:flex-row-reverse' : 'lg:flex-row'} gap-8 items-center`}
             >
+              {/* Alternate image position: even = image right, odd = image left */}
+              {/* Phase text: number, label, description */}
               <div className="flex-1">
                 <span className="font-orbitron font-bold text-4xl text-charcoal/20 dark:text-white/20 mb-2 block">{phase.num}</span>
                 <h3 className="font-orbitron font-semibold text-charcoal dark:text-white text-xl mb-2">{phase.label}</h3>
                 <p className="text-charcoal/70 dark:text-white/70 font-inter">{phase.desc}</p>
               </div>
+
+              {/* Phase image */}
               <div className="flex-1 w-full lg:max-w-md">
                 <img src={phase.image} alt={phase.label} className="rounded-2xl w-full object-cover h-48" />
               </div>
@@ -90,21 +116,28 @@ const AboutPage = () => (
       </div>
     </section>
 
-    {/* Values with image strip */}
+    {/* ── WHAT WE BELIEVE (VALUES) SECTION ─────────────────────
+        Top: heading + two decorative images side by side.
+        Bottom: 2-column grid of value cards mapped from `values`. */}
     <section className="py-20 bg-charcoal/5 dark:bg-white/5">
       <div className="container mx-auto px-6 lg:px-12">
         <div className="grid lg:grid-cols-2 gap-16 items-start mb-16">
+          {/* Left: Section heading and intro text */}
           <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }}>
             <h2 className="font-orbitron font-bold text-3xl tracking-tight text-charcoal dark:text-white mb-6">What we believe</h2>
             <p className="text-charcoal/70 dark:text-white/70 font-inter mb-8">
               Our values guide how we work with clients. We focus on outcomes, listen first, and stay pragmatic and independent.
             </p>
           </motion.div>
+
+          {/* Right: Two decorative images staggered vertically */}
           <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} className="grid grid-cols-2 gap-4">
             <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=400&q=80" alt="Collaboration" className="rounded-xl w-full object-cover h-32" />
             <img src="https://images.unsplash.com/photo-1560179707-f14e90ef3623?w=400&q=80" alt="Construction" className="rounded-xl w-full object-cover h-32 mt-4" />
           </motion.div>
         </div>
+
+        {/* Value cards grid — each card shows an icon, title, and description */}
         <div className="grid md:grid-cols-2 gap-8">
           {values.map((v, i) => (
             <motion.div key={i} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="p-8 rounded-2xl bg-white dark:bg-charcoalLight/30 border border-charcoal/5 dark:border-white/5 hover:shadow-lg transition-shadow">
@@ -117,7 +150,9 @@ const AboutPage = () => (
       </div>
     </section>
 
-    {/* CTA */}
+    {/* ── CALL TO ACTION (CTA) SECTION ─────────────────────────
+        Centered prompt encouraging visitors to get in touch.
+        Links to the /contact route.                            */}
     <section className="py-20 bg-charcoal/10 dark:bg-charcoal text-charcoal dark:text-white transition-colors duration-300">
       <div className="container mx-auto px-6 text-center">
         <p className="text-charcoal/80 dark:text-white/80 font-inter mb-6 max-w-xl mx-auto">Let's discuss how we can help you see earlier and act sooner.</p>
