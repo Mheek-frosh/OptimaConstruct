@@ -55,6 +55,7 @@ const ContactPage = () => {
                   </div>
                   <div>
                     <p className="font-orbitron text-xs uppercase tracking-wider text-charcoal/50 dark:text-white/50">Phone</p>
+                    {/* UPDATED: Changed phone number to +1 403 389 8114 */}
                     <p className="font-inter text-charcoal dark:text-white">+1 403 389 8114</p>
                   </div>
                 </div>
